@@ -1,0 +1,124 @@
+﻿<Window x:Class="ChromeWindowDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChromeWindowDemo"
+        mc:Ignorable="d"
+
+        WindowStyle="None"
+        AllowsTransparency="True"
+        x:Name="MainShell"
+        WindowStartupLocation="CenterScreen"
+
+        Title="Welcome, friend" Height="450" Width="800">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MainWindow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <!-- Outer boarder with drop shadow effect -->
+                        <Border Padding="{Binding OuterMarginThickness, FallbackValue=6}">
+                            <!-- Main window outline-->
+                            <Grid>
+
+                                <Border x:Name="Container" CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}"
+                                        Background="{StaticResource BackgroundLightBrush}" Padding="0 0 0 0">
+                                    <!-- <Border.Effect> -->
+                                    <!--     <DropShadowEffect ShadowDepth="0" Opacity="0.2" /> -->
+                                    <!-- </Border.Effect> -->
+                                </Border>
+
+                                <!-- Main content -->
+                                <Grid>
+                                    <Grid.OpacityMask>
+                                        <VisualBrush Visual="{Binding ElementName=Container}"></VisualBrush>
+                                    </Grid.OpacityMask>
+                                    <Grid.RowDefinitions>
+                                        <!-- Title -->
+                                        <RowDefinition Height="{Binding CaptionHeightGridLength,FallbackValue=42}" />
+                                        <!-- Drop shadow -->
+                                        <RowDefinition Height="Auto" />
+                                        <!-- Content -->
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Title -->
+                                    <Grid Grid.Row="0">
+                                    <!-- <Grid Grid.Column="0" Panel.ZIndex="1"> -->
+                                        <Grid.ColumnDefinitions>
+                                            <!-- Icon -->
+                                            <ColumnDefinition Width="Auto" />
+                                            <!-- Title -->
+                                            <ColumnDefinition Width="*" />
+                                            <!-- System buttons -->
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <!-- Icon -->
+                                        <Viewbox Grid.Column="0">
+                                            <Border Padding="4">
+                                                <Path Fill="Gold"
+                                                      Data="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4V6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z" />
+                                            </Border>
+                                        </Viewbox>
+                                        <!-- Title -->
+                                        <Viewbox Grid.Column="1">
+                                            <TextBlock>Welcome, friends</TextBlock>
+                                        </Viewbox>
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+
+                                            <!-- Minimize button -->
+                                            <Button Style="{StaticResource WindowControlButton}" Padding="8 8 8 8">
+                                                <Button.Content>
+                                                    <Viewbox>
+                                                        <Path Fill="Black" Data="M6 19h12v2H6z" />
+                                                    </Viewbox>
+                                                </Button.Content>
+                                            </Button>
+                                            <!-- Maximize button -->
+                                            <Button Style="{StaticResource WindowControlButton}" Padding="8 8 8 8">
+                                                <Button.Content>
+                                                    <Viewbox>
+                                                        <Path Fill="Black"
+                                                              Data="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />
+                                                    </Viewbox>
+                                                </Button.Content>
+                                            </Button>
+                                            <!-- Close button -->
+                                            <Button Style="{StaticResource ExitButton}" Padding="8 8 8 8" >
+                                                <Button.Content>
+                                                        <Viewbox>
+                                                        <Border Background="Transparent">
+
+                                                            <Path Fill="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}"
+                                                                  Data="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z" />
+                                                        </Border>
+                                                    </Viewbox>
+                                                </Button.Content>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <!-- Drop shadow -->
+                                    <Button Grid.Row="1"></Button>
+
+                                    <!-- Content -->
+                                    <Button Grid.Row="2"></Button>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome ResizeBorderThickness="{Binding ResizeBorderThickness}" CornerRadius="0" GlassFrameThickness="0"
+                      CaptionHeight="{Binding CaptionHeight}" />
+    </WindowChrome.WindowChrome>
+
+    <Grid Background="Aquamarine" />
+</Window>

@@ -1,0 +1,22 @@
+﻿ <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ChromeWindowDemo">
+    <!-- pack://application;,,, points to the directory of current project -->
+    <!-- Aquarion is not the file name but the name of the font which you will see on the top left after double clicking -->
+    <FontFamily x:Key="Aquarion">pack://application;,,,/Resources/Fonts/#Aquarion</FontFamily>
+
+    <Style x:Key="BaseStyle" TargetType="{x:Type Control}">
+        <Setter Property="FontFamily" Value="{StaticResource Aquarion}"/>
+    </Style>
+
+    <!-- TextBlock does not inherit from Control, so we set a new style -->
+    <Style x:Key="TextBlockBaseStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontFamily" Value="{StaticResource Aquarion}"/>
+    </Style>
+
+    <!-- Apply default styles globally -->
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}"></Style>
+    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BaseStyle}"></Style>
+    <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource BaseStyle}"></Style>
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlockBaseStyle}"></Style>
+</ResourceDictionary>
