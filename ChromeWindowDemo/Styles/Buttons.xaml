@@ -7,6 +7,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="8 8 8 8"></Setter>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -27,6 +28,7 @@
 
     </Style>
 
+    <!-- ExitButton -->
     <Style TargetType="Button" x:Key="ExitButton" BasedOn="{StaticResource WindowControlButton}">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
@@ -34,5 +36,32 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <!-- MaximizeButton -->
+    <Style TargetType="Button" x:Key="MaximizeButton" BasedOn="{StaticResource WindowControlButton}">
+        <Style.Triggers>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=WindowState, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" Value="Maximized"/>
+
+                    <!-- If using property of itself.-, you must bind to Self instead of using Property in DataTrigger -->
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsMouseOver}" Value="True"/>
+                </MultiDataTrigger.Conditions>
+                <Setter Property="Padding" Value="10"/>
+            </MultiDataTrigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=WindowState, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" Value="Normal"/>
+
+                    <!-- If using property of itself.-, you must bind to Self instead of using Property in DataTrigger -->
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsMouseOver}" Value="True"/>
+                </MultiDataTrigger.Conditions>
+                <Setter Property="Padding" Value="6"/>
+            </MultiDataTrigger>
+
+        </Style.Triggers>
+    </Style> 
 
 </ResourceDictionary>

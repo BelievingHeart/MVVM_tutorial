@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
+using ChromeWindowDemo.Commands;
 using PropertyChanged;
 
 namespace ChromeWindowDemo
@@ -52,6 +54,15 @@ namespace ChromeWindowDemo
         {
             _window = window;
             _window.StateChanged += WindowOnStateChanged;
+
+            // Commands
+            MaximizeCommand  = new RelayCommand(() =>
+            {
+                _window.WindowState ^= WindowState.Maximized;
+            });
+
+            MinimizeCommand = new RelayCommand(() => _window.WindowState = WindowState.Minimized);
+            ExitCommand = new RelayCommand(()=> _window.Close());
         }
 
         #endregion
@@ -82,6 +93,11 @@ namespace ChromeWindowDemo
         /// The height on the window's top that allows for dragging and clicking
         /// </summary>
         public GridLength CaptionHeightGridLength => new GridLength(CaptionHeight + _resizeBorder);
+
+        public ICommand MaximizeCommand { get; set; } 
+        public ICommand MinimizeCommand { get; set; }
+        public ICommand ExitCommand { get; set; }
+
         #endregion
 
 
