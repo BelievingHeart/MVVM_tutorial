@@ -44,7 +44,7 @@
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
 
-                                    <!-- Title -->
+                                    <!-- Header -->
                                     <Grid Grid.Row="0">
                                     <!-- <Grid Grid.Column="0" Panel.ZIndex="1"> -->
                                         <Grid.ColumnDefinitions>
@@ -63,8 +63,13 @@
                                             </Border>
                                         </Viewbox>
                                         <!-- Title -->
-                                        <Viewbox Grid.Column="1">
-                                            <TextBlock>Welcome, friends</TextBlock>
+                                        <Viewbox Grid.Column="0" Grid.ColumnSpan="3">
+                                            <StackPanel>
+                                                <TextBlock HorizontalAlignment="Center" FontSize="{StaticResource FontSizeLarge}" Margin="0 0 0 -3">
+                                                    <Run Foreground="OrangeRed" FontWeight="Bold" Text="N"/><Run Foreground="DeepSkyBlue" FontWeight="Bold" Text="O"/><Run Foreground="MediumPurple" FontWeight="Bold" Text="T"/><Run Foreground="DeepPink" FontWeight="Bold" Text="E"/>
+                                                </TextBlock>
+                                                <TextBlock Foreground="DarkSlateBlue" FontSize="{StaticResource FontSizeSmall}">By Afterbunny</TextBlock>
+                                            </StackPanel>
                                         </Viewbox>
                                         <StackPanel Grid.Column="2" Orientation="Horizontal">
 

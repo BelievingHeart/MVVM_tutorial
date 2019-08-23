@@ -14,4 +14,7 @@
 
     <Color x:Key="ForegroundVeryDark">#000000</Color>
     <SolidColorBrush x:Key="ForegroundVeryDarkBrush" Color="{StaticResource ForegroundVeryDark}"></SolidColorBrush>
+
+    <Color x:Key="MouseOverColor">#03e8fc</Color>
+    <SolidColorBrush x:Key="MouseOverColorBrush" Color="{StaticResource MouseOverColor}"></SolidColorBrush>
 </ResourceDictionary>
