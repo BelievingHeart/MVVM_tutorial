@@ -121,10 +121,13 @@
 
     </Window.Resources>
 
+    <!-- Set attached property WindowChrome.WindowChrome to the Window  -->
+    <!-- WindowChrome adds in ResizeBorder as well as caption area which allows you to dray the window about -->
+    <!-- code equivalence: Window.WindowChrome.WindowChrome = new WindowChrome{ Properties...} -->
     <WindowChrome.WindowChrome>
         <WindowChrome ResizeBorderThickness="{Binding ResizeBorderThickness}" CornerRadius="0" GlassFrameThickness="0"
                       CaptionHeight="{Binding CaptionHeight}" />
     </WindowChrome.WindowChrome>
 
-    <Grid Background="Aquamarine" />
+    <Grid Background="{StaticResource BackgroundLightBrush}" />
 </Window>

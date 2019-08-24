@@ -4,14 +4,14 @@
              xmlns:local="clr-namespace:ChromeWindowDemo"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         <ResourceDictionary>
-             <ResourceDictionary.MergedDictionaries>
-                 <ResourceDictionary Source="Styles/Fonts.xaml"></ResourceDictionary>
-                 <ResourceDictionary Source="Styles/Text.xaml"></ResourceDictionary>
-                 <ResourceDictionary Source="Styles/Buttons.xaml"></ResourceDictionary>
-                 <ResourceDictionary Source="Styles/Window.xaml"></ResourceDictionary>
-                 <ResourceDictionary Source="Styles/Colors.xaml"></ResourceDictionary>
-             </ResourceDictionary.MergedDictionaries>
-         </ResourceDictionary>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/Fonts.xaml" />
+                <ResourceDictionary Source="Styles/Colors.xaml" />
+                <ResourceDictionary Source="Styles/Text.xaml" />
+                <ResourceDictionary Source="Styles/Buttons.xaml" />
+                <ResourceDictionary Source="Styles/Window.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
