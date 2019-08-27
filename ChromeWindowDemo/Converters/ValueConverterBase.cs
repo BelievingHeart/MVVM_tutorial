@@ -9,7 +9,7 @@ namespace ChromeWindowDemo
     /// Classes that inherit this class don't need to provide singleton instance when using in XAML
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class BaseConverter<T> : MarkupExtension, IValueConverter
+    public abstract class ValueConverterBase<T> : MarkupExtension, IValueConverter
         where T : class, new()
     {
         /// <summary>

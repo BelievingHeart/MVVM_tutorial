@@ -70,7 +70,7 @@
         <Setter Property="BorderThickness" Value="0 0 0 1" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="local:PasswordBoxAttachedProperties.MonitorHasText" Value="True"></Setter>
+        <Setter Property="local:PasswordBox_MonitorHasTextProperty.Value" Value="True"></Setter>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -91,7 +91,7 @@
 
                                     <Style.Triggers>
                                         <!-- TODO: To fully understand this -->
-                                        <DataTrigger Binding="{Binding Path=(local:PasswordBoxAttachedProperties.HasText), RelativeSource={RelativeSource TemplatedParent}}" Value="False">
+                                        <DataTrigger Binding="{Binding Path=(local:PasswordBox_HasTextProperty.Value), RelativeSource={RelativeSource TemplatedParent}}" Value="False">
                                             <Setter Property="Visibility" Value="Visible"></Setter>
                                         </DataTrigger>
                                     </Style.Triggers>

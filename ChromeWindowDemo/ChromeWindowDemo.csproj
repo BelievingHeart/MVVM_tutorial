@@ -64,10 +64,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AttatchedProperties\PasswordBoxAttachedProperties.cs" />
+    <Compile Include="AttatchedProperties\AttachedPropertyOwnerBase.cs" />
+    <Compile Include="AttatchedProperties\PasswordAttachedProperties.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="Converters\BaseConverter.cs" />
-    <Compile Include="Converters\EnumToPageConverter.cs" />
+    <Compile Include="Converters\ValueConverterBase.cs" />
+    <Compile Include="Converters\EnumToPage.cs" />
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>

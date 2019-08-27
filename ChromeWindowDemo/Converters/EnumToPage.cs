@@ -15,7 +15,7 @@ namespace ChromeWindowDemo
         Login
     }
 
-    public class EnumToPageConverter : BaseConverter<EnumToPageConverter>
+    public class EnumToPage : ValueConverterBase<EnumToPage>
     {
         //TODO: FINISH THIS
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)

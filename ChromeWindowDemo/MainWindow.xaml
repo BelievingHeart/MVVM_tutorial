@@ -158,7 +158,7 @@
 
     <!-- Contents of the MainWindow -->
     <Grid>
-        <Frame Content="{Binding CurrentPage, Converter={local:EnumToPageConverter}}"/>
+        <Frame Content="{Binding CurrentPage, Converter={local:EnumToPage}}"/>
     </Grid>
 
 </Window>
