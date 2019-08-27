@@ -98,6 +98,11 @@ namespace ChromeWindowDemo
         public ICommand MinimizeCommand { get; set; }
         public ICommand ExitCommand { get; set; }
 
+        /// <summary>
+        /// Current page to display on the main window
+        /// </summary>
+        public PageType CurrentPage { get; set; } = PageType.Login;
+
         #endregion
 
 

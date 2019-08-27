@@ -10,11 +10,17 @@
         AllowsTransparency="True"
         x:Name="MainShell"
         WindowStartupLocation="CenterScreen"
+        MinHeight="450" MinWidth="800"
 
         Title="Welcome, friend" Height="450" Width="800">
 
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
+            <!-- <Setter Property="Background"> -->
+            <!--     <Setter.Value> -->
+            <!--             <ImageBrush ImageSource="Resources/Background/emoji-background.png" TileMode="Tile" Viewport="0,0,500,500" ViewportUnits="Absolute" Stretch="Uniform"/> -->
+            <!--     </Setter.Value> -->
+            <!-- </Setter> -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Window}">
@@ -23,30 +29,26 @@
                             <!-- Main window outline-->
                             <Grid>
 
-                                <Border x:Name="Container" CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}"
+                                <Border x:Name="Container"
+                                        CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}"
                                         Background="{StaticResource BackgroundLightBrush}" Padding="0 0 0 0">
-                                    <!-- <Border.Effect> -->
-                                    <!--     <DropShadowEffect ShadowDepth="0" Opacity="0.2" /> -->
-                                    <!-- </Border.Effect> -->
                                 </Border>
 
                                 <!-- Main content -->
                                 <Grid>
                                     <Grid.OpacityMask>
-                                        <VisualBrush Visual="{Binding ElementName=Container}"></VisualBrush>
+                                        <VisualBrush Visual="{Binding ElementName=Container}" />
                                     </Grid.OpacityMask>
+
                                     <Grid.RowDefinitions>
                                         <!-- Title -->
                                         <RowDefinition Height="{Binding CaptionHeightGridLength,FallbackValue=42}" />
-                                        <!-- Drop shadow -->
-                                        <RowDefinition Height="Auto" />
                                         <!-- Content -->
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
 
                                     <!-- Header -->
                                     <Grid Grid.Row="0">
-                                    <!-- <Grid Grid.Column="0" Panel.ZIndex="1"> -->
                                         <Grid.ColumnDefinitions>
                                             <!-- Icon -->
                                             <ColumnDefinition Width="Auto" />
@@ -55,35 +57,49 @@
                                             <!-- System buttons -->
                                             <ColumnDefinition Width="Auto" />
                                         </Grid.ColumnDefinitions>
+
                                         <!-- Icon -->
                                         <Viewbox Grid.Column="0">
                                             <Border Padding="4">
                                                 <Path Fill="Gold"
                                                       Data="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4V6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z" />
                                             </Border>
+
+                                            <!-- Title -->
                                         </Viewbox>
-                                        <!-- Title -->
                                         <Viewbox Grid.Column="0" Grid.ColumnSpan="3">
                                             <StackPanel>
-                                                <TextBlock HorizontalAlignment="Center" FontSize="{StaticResource FontSizeLarge}" Margin="0 0 0 -3">
-                                                    <Run Foreground="OrangeRed" FontWeight="Bold" Text="N"/><Run Foreground="DeepSkyBlue" FontWeight="Bold" Text="O"/><Run Foreground="MediumPurple" FontWeight="Bold" Text="T"/><Run Foreground="DeepPink" FontWeight="Bold" Text="E"/>
+                                                <TextBlock HorizontalAlignment="Center"
+                                                           FontSize="{StaticResource FontSizeLarge}" Margin="0 0 0 -3">
+                                                    <Run Foreground="OrangeRed" FontWeight="Bold" Text="N" />
+                                                    <Run Foreground="DeepSkyBlue" FontWeight="Bold" Text="O" />
+                                                    <Run Foreground="MediumPurple" FontWeight="Bold" Text="T" />
+                                                    <Run Foreground="DeepPink" FontWeight="Bold" Text="E" />
                                                 </TextBlock>
-                                                <TextBlock Foreground="DarkSlateBlue" FontSize="{StaticResource FontSizeSmall}">By Afterbunny</TextBlock>
+                                                <TextBlock Foreground="DarkSlateBlue"
+                                                           FontSize="{StaticResource FontSizeSmall}"
+                                                           HorizontalAlignment="Center">
+                                                    By Afterbunny
+                                                </TextBlock>
                                             </StackPanel>
                                         </Viewbox>
+
                                         <StackPanel Grid.Column="2" Orientation="Horizontal">
 
                                             <!-- Minimize button -->
-                                            <Button Command="{Binding MinimizeCommand}" Style="{StaticResource WindowControlButton}">
+                                            <Button Command="{Binding MinimizeCommand}"
+                                                    Style="{StaticResource WindowControlButton}">
                                                 <Button.Content>
                                                     <Viewbox>
                                                         <Path Fill="Black" Data="M6 19h12v2H6z" />
                                                     </Viewbox>
                                                 </Button.Content>
+
                                             </Button>
                                             <!-- Maximize button -->
-                                            <Button Command="{Binding MaximizeCommand}" Style="{StaticResource MaximizeButton}">
-                                               
+                                            <Button Command="{Binding MaximizeCommand}"
+                                                    Style="{StaticResource MaximizeButton}">
+
                                                 <Button.Content>
                                                     <Viewbox>
                                                         <Path Fill="Black"
@@ -94,11 +110,12 @@
                                             <!-- Close button -->
                                             <Button Command="{Binding ExitCommand}" Style="{StaticResource ExitButton}">
                                                 <Button.Content>
-                                                        <Viewbox>
+                                                    <Viewbox>
                                                         <Border Background="Transparent">
 
-                                                            <Path Fill="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}"
-                                                                  Data="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z" />
+                                                            <Path
+                                                                Fill="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}"
+                                                                Data="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z" />
                                                         </Border>
                                                     </Viewbox>
                                                 </Button.Content>
@@ -106,11 +123,21 @@
                                         </StackPanel>
                                     </Grid>
 
-                                    <!-- Drop shadow -->
-                                    <Button Grid.Row="1"></Button>
-
                                     <!-- Content -->
-                                    <Button Grid.Row="2"></Button>
+                                    <Border Grid.Row="1" Background="CornflowerBlue">
+                                        <Grid>
+                                            <Grid.Background>
+                                                <ImageBrush ImageSource="Resources/Background/emoji-background.png"
+                                                            TileMode="Tile" Viewport="0,0,500,500"
+                                                            ViewportUnits="Absolute" Stretch="Uniform" />
+
+                                            </Grid.Background>
+
+                                            <!-- Page -->
+                                            <ContentPresenter Content="{TemplateBinding Content}" />
+                                        </Grid>
+                                    </Border>
+
                                 </Grid>
                             </Grid>
                         </Border>
@@ -129,5 +156,9 @@
                       CaptionHeight="{Binding CaptionHeight}" />
     </WindowChrome.WindowChrome>
 
-    <Grid Background="{StaticResource BackgroundLightBrush}" />
+    <!-- Contents of the MainWindow -->
+    <Grid>
+        <Frame Content="{Binding CurrentPage, Converter={local:EnumToPageConverter}}"/>
+    </Grid>
+
 </Window>

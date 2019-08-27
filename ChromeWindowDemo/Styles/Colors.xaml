@@ -17,4 +17,9 @@
 
     <Color x:Key="MouseOverColor">#03e8fc</Color>
     <SolidColorBrush x:Key="MouseOverColorBrush" Color="{StaticResource MouseOverColor}"></SolidColorBrush>
+
+    <SolidColorBrush x:Key="BorderBrushLight" Color="DarkSlateGray"></SolidColorBrush>
+    <SolidColorBrush x:Key="PlaceholderBrush" Color="Silver"></SolidColorBrush>
+    <SolidColorBrush x:Key="ForegroundMouseOverBrush" Color="Blue"></SolidColorBrush>
+
 </ResourceDictionary>
