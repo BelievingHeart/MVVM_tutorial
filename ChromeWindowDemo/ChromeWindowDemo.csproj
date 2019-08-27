@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AttatchedProperties\PasswordBoxAttachedProperties.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Converters\BaseConverter.cs" />
     <Compile Include="Converters\EnumToPageConverter.cs" />
