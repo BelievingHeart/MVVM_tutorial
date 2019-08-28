@@ -18,7 +18,7 @@
         <Setter Property="BorderThickness" Value="0 0 0 1" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="TextAlignment" Value="Center" />
 
         <Setter Property="Template">
             <Setter.Value>
@@ -32,15 +32,19 @@
                                           HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" />
                         </Border>
 
-                        <TextBlock IsHitTestVisible="False" Text="{TemplateBinding Tag}" FontSize="{StaticResource FontSizeLarge}" FontWeight="Light" Foreground="{StaticResource PlaceholderBrush}" HorizontalAlignment="Center">
+                        <TextBlock IsHitTestVisible="False" Text="{TemplateBinding Tag}"
+                                   FontSize="{StaticResource FontSizeLarge}" FontWeight="Light"
+                                   Foreground="{StaticResource PlaceholderBrush}" HorizontalAlignment="Center">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockBaseStyle}">
-                                    <Setter Property="Visibility" Value="Hidden"></Setter>
+                                    <Setter Property="Visibility" Value="Hidden" />
 
                                     <Style.Triggers>
                                         <!-- NOTE: TemplateBinding does not work within Triggers, use Binding and RelativeSource instead -->
-                                        <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource TemplatedParent}}" Value="">
-                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                        <DataTrigger
+                                            Binding="{Binding Text, RelativeSource={RelativeSource TemplatedParent}}"
+                                            Value="">
+                                            <Setter Property="Visibility" Value="Visible" />
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
@@ -71,8 +75,8 @@
         <Setter Property="BorderThickness" Value="0 0 0 1" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="local:PasswordBox_MonitorHasTextProperty.Value" Value="True"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="local:PasswordBox_MonitorHasTextProperty.Value" Value="True" />
 
         <Setter Property="Template">
             <Setter.Value>
@@ -86,13 +90,11 @@
                                           HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" />
                         </Border>
 
-                        <TextBlock IsHitTestVisible="False" Text="{TemplateBinding Tag}" FontSize="{StaticResource FontSizeLarge}" FontWeight="Light" Foreground="{StaticResource PlaceholderBrush}" HorizontalAlignment="Center">
-                            <TextBlock.Style>
-                                <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockBaseStyle}">
-                                    <Setter Property="Visibility" Value="{Binding Path=(local:PasswordBox_HasTextProperty.Value), RelativeSource={RelativeSource TemplatedParent}, Converter={local:BooleanToVisibilityConverter}}"></Setter>
-
-                                </Style>
-                            </TextBlock.Style>
+                        <TextBlock IsHitTestVisible="False" Text="{TemplateBinding Tag}"
+                                   FontSize="{StaticResource FontSizeLarge}" FontWeight="Light"
+                                   Foreground="{StaticResource PlaceholderBrush}" HorizontalAlignment="Center"
+                                   Visibility="{Binding Path=(local:PasswordBox_HasTextProperty.Value), RelativeSource={RelativeSource TemplatedParent}, Converter={local:BooleanToVisibilityConverter}}">
+               
                         </TextBlock>
                     </Grid>
 
