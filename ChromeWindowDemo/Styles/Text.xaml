@@ -18,6 +18,7 @@
         <Setter Property="BorderThickness" Value="0 0 0 1" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="TextAlignment" Value="Center"/>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -37,7 +38,7 @@
                                     <Setter Property="Visibility" Value="Hidden"></Setter>
 
                                     <Style.Triggers>
-                                        <!-- TODO: To fully understand this -->
+                                        <!-- NOTE: TemplateBinding does not work within Triggers, use Binding and RelativeSource instead -->
                                         <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource TemplatedParent}}" Value="">
                                             <Setter Property="Visibility" Value="Visible"></Setter>
                                         </DataTrigger>
@@ -70,7 +71,8 @@
         <Setter Property="BorderThickness" Value="0 0 0 1" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="local:PasswordBox_MonitorHasTextProperty.Value" Value="True"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="local:PasswordBox_MonitorHasTextProperty.Value" Value="True"/>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -87,14 +89,8 @@
                         <TextBlock IsHitTestVisible="False" Text="{TemplateBinding Tag}" FontSize="{StaticResource FontSizeLarge}" FontWeight="Light" Foreground="{StaticResource PlaceholderBrush}" HorizontalAlignment="Center">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockBaseStyle}">
-                                    <Setter Property="Visibility" Value="Hidden"></Setter>
+                                    <Setter Property="Visibility" Value="{Binding Path=(local:PasswordBox_HasTextProperty.Value), RelativeSource={RelativeSource TemplatedParent}, Converter={local:BooleanToVisibilityConverter}}"></Setter>
 
-                                    <Style.Triggers>
-                                        <!-- TODO: To fully understand this -->
-                                        <DataTrigger Binding="{Binding Path=(local:PasswordBox_HasTextProperty.Value), RelativeSource={RelativeSource TemplatedParent}}" Value="False">
-                                            <Setter Property="Visibility" Value="Visible"></Setter>
-                                        </DataTrigger>
-                                    </Style.Triggers>
                                 </Style>
                             </TextBlock.Style>
                         </TextBlock>

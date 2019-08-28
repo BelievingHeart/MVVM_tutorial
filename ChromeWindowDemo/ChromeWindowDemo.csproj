@@ -67,6 +67,7 @@
     <Compile Include="AttatchedProperties\AttachedPropertyOwnerBase.cs" />
     <Compile Include="AttatchedProperties\PasswordAttachedProperties.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\ValueConverterBase.cs" />
     <Compile Include="Converters\EnumToPage.cs" />
     <Compile Include="Pages\LoginPage.xaml.cs">
