@@ -12,7 +12,7 @@ using PropertyChanged;
 namespace ChromeWindowDemo
 {
     // This attribute will automatically implement INotifyPropertyChanged
-    public class WindowViewModel : INotifyPropertyChanged
+    public class WindowViewModel : ViewModelBase
     {
         #region Private Member
 
@@ -30,10 +30,6 @@ namespace ChromeWindowDemo
 
         #region Private Sub
 
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         private void WindowOnStateChanged(object sender, EventArgs e)
         {
@@ -72,7 +68,7 @@ namespace ChromeWindowDemo
         
 
         /// <summary>
-        /// The size of the resize border that you can grap with cursor around the window
+        /// The size of the resize border that you can grab with cursor around the window
         /// </summary>
         public Thickness ResizeBorderThickness => new Thickness(_resizeBorder + _outerMarginSize);
         /// <summary>
@@ -105,11 +101,5 @@ namespace ChromeWindowDemo
 
         #endregion
 
-
-        #region Event
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        #endregion
     }
 }

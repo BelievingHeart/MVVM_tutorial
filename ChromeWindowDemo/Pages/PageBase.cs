@@ -11,9 +11,11 @@ namespace ChromeWindowDemo
     /// <summary>
     /// Base page class that provide common functionality by inheritance
     /// </summary>
-    public class PageBase : Page
+    public class PageBase<ViewModelType> : Page
+    where ViewModelType: ViewModelBase, new()
     {
         #region Properties
+
 
         /// <summary>
         /// The animation to perform on loading
@@ -35,6 +37,25 @@ namespace ChromeWindowDemo
         /// </summary>
         public double InOutDecelerationRatio { get; set; } = 0.9;
 
+        /// <summary>
+        /// The backing field of <see cref="ViewModel"/>
+        /// </summary>
+        private ViewModelType _viewModel;
+
+        /// <summary>
+        /// The view model that is bound to this page
+        /// Update DataContext in Setter
+        /// </summary>
+        public ViewModelType ViewModel
+        {
+            get { return _viewModel; }
+            set
+            {
+                _viewModel = value;
+                this.DataContext = _viewModel;
+            }
+        }
+
         #endregion
 
         #region Constructors
@@ -43,6 +64,9 @@ namespace ChromeWindowDemo
         {
             this.Loaded += OnLoaded;
             this.Unloaded += OnUnloaded;
+
+            // Set this.DataContext
+            ViewModel = new ViewModelType();
         }
 
         #endregion

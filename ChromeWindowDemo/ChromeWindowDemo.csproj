@@ -68,16 +68,20 @@
     </ApplicationDefinition>
     <Compile Include="AttatchedProperties\AttachedPropertyOwnerBase.cs" />
     <Compile Include="AttatchedProperties\PasswordAttachedProperties.cs" />
+    <Compile Include="Commands\ParameterizedCommand.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\ValueConverterBase.cs" />
     <Compile Include="Converters\EnumToPage.cs" />
     <Compile Include="ExtensionMethods\StoryBoardExtensions.cs" />
+    <Compile Include="Interface\IHavePassword.cs" />
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageBase.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="ViewModel\LoginPageViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
