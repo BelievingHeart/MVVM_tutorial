@@ -46,6 +46,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -70,9 +72,11 @@
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\ValueConverterBase.cs" />
     <Compile Include="Converters\EnumToPage.cs" />
+    <Compile Include="ExtensionMethods\StoryBoardExtensions.cs" />
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageBase.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
