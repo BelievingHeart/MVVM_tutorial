@@ -2,8 +2,6 @@
 using System;
 using System.Diagnostics;
 using System.Globalization;
-using System.Windows.Data;
-using System.Windows.Markup;
 
 namespace ChromeWindowDemo
 {
@@ -12,7 +10,14 @@ namespace ChromeWindowDemo
     /// </summary>
     public enum PageType
     {
-        Login
+        /// <summary>
+        /// Login page
+        /// </summary>
+        Login = 1,
+        /// <summary>
+        /// Chat page
+        /// </summary>
+        Chat = 2
     }
 
     public class EnumToPage : ValueConverterBase<EnumToPage>
@@ -27,6 +32,8 @@ namespace ChromeWindowDemo
                 switch (valueTyped)
                 {
                     case PageType.Login: return new LoginPage();
+
+                    case PageType.Chat: return new ChatPage();
 
                     default: Debugger.Break();
                         break;

@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using ChromeWindowDemo.Commands;
-using PropertyChanged;
 
 namespace ChromeWindowDemo
 {
@@ -97,7 +91,7 @@ namespace ChromeWindowDemo
         /// <summary>
         /// Current page to display on the main window
         /// </summary>
-        public PageType CurrentPage { get; set; } = PageType.Login;
+        public PageType CurrentPage { get; set; } = PageType.Chat;
 
         #endregion
 

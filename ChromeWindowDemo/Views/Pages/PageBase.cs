@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
@@ -12,25 +9,29 @@ namespace ChromeWindowDemo
     /// Base page class that provide common functionality by inheritance
     /// </summary>
     public class PageBase<ViewModelType> : Page
-    where ViewModelType: ViewModelBase, new()
+        where ViewModelType : ViewModelBase, new()
     {
         #region Properties
 
+        public static readonly DependencyProperty LoadingAnimationTypeProperty = DependencyProperty.Register(
+            "LoadingAnimationType", typeof(PageAnimationType), typeof(PageBase<ViewModelType>), new PropertyMetadata(default(PageAnimationType)));
+
+        public PageAnimationType LoadingAnimationType
+        {
+            get { return (PageAnimationType) GetValue(LoadingAnimationTypeProperty); }
+            set { SetValue(LoadingAnimationTypeProperty, value); }
+        }
+
 
         /// <summary>
-        /// The animation to perform on loading
+        /// The animation to perform on unloading
         /// </summary>
-        public PageAnimationType LoadingAnimationType { get; set; } = PageAnimationType.SlideIn;
-
-        /// <summary>
-        /// The animation to perform on loading
-        /// </summary>
-        public PageAnimationType UnloadingAnimationType { get; set; } = PageAnimationType.SlideOut;
+        public PageAnimationType UnloadingAnimationType { get; set; }
 
         /// <summary>
         /// The time duration to perform loading and unloading animation
         /// </summary>
-        public double LoadUnloadSeconds { get; set; } = 6;
+        public double LoadUnloadSeconds { get; set; } = 0.6;
 
         /// <summary>
         /// The acceleration ration for page loading in and out
@@ -81,8 +82,13 @@ namespace ChromeWindowDemo
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             switch (LoadingAnimationType)
-            { 
+            {
+                case PageAnimationType.None: break;
+
                 case PageAnimationType.SlideIn: PerformSlideInAnimation();
+                    break;
+
+                case PageAnimationType.OpacityGrow: PerformOpacityGrowAnimation();
                     break;
 
                 default: Debugger.Break();
@@ -99,6 +105,8 @@ namespace ChromeWindowDemo
         {
             switch (UnloadingAnimationType)
             {
+                case PageAnimationType.None: break;
+
                 case PageAnimationType.SlideOut: 
                     PerformSlideOutAnimation();
                     break;
@@ -135,6 +143,15 @@ namespace ChromeWindowDemo
             storyBoard.Begin(this);
         }
 
+        private void PerformOpacityGrowAnimation()
+        {
+            var storyBoard = new Storyboard();
+
+            storyBoard.AddOpacityGrowAnimation(LoadUnloadSeconds);
+
+            storyBoard.Begin(this);
+        }
+
         #endregion
     }
 
@@ -156,6 +173,11 @@ namespace ChromeWindowDemo
         /// <summary>
         /// A type of animation that performs when <see cref="PageBase"/> is unloaded
         /// </summary>
-        SlideOut = 2
+        SlideOut = 2,
+
+        /// <summary>
+        /// Opacity of the entire page translating from 0 to 1
+        /// </summary>
+        OpacityGrow = 3
     }
 }

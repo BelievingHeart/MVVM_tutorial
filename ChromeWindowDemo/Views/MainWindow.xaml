@@ -16,11 +16,6 @@
 
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
-            <!-- <Setter Property="Background"> -->
-            <!--     <Setter.Value> -->
-            <!--             <ImageBrush ImageSource="Resources/Background/emoji-background.png" TileMode="Tile" Viewport="0,0,500,500" ViewportUnits="Absolute" Stretch="Uniform"/> -->
-            <!--     </Setter.Value> -->
-            <!-- </Setter> -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Window}">
@@ -125,13 +120,7 @@
 
                                     <!-- Content -->
                                     <Border Grid.Row="1" Background="CornflowerBlue">
-                                        <Grid>
-                                            <Grid.Background>
-                                                <ImageBrush ImageSource="Resources/Background/emoji-background.png"
-                                                            TileMode="Tile" Viewport="0,0,500,500"
-                                                            ViewportUnits="Absolute" Stretch="Uniform" />
-
-                                            </Grid.Background>
+                                        <Grid Background="{DynamicResource EmojiBackground}">
 
                                             <!-- Page -->
                                             <ContentPresenter Content="{TemplateBinding Content}" />

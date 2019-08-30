@@ -16,16 +16,14 @@ using System.Windows.Shapes;
 namespace ChromeWindowDemo
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ChatPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ChatPage : PageBase<ChatPageViewModel>
     {
-        public MainWindow()
+        public ChatPage()
         {
+            LoadingAnimationType = PageAnimationType.OpacityGrow;
             InitializeComponent();
-            this.DataContext = new WindowViewModel(this);
         }
-
-     
     }
 }

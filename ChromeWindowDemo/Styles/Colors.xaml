@@ -22,4 +22,7 @@
     <SolidColorBrush x:Key="PlaceholderBrush" Color="Silver"></SolidColorBrush>
     <SolidColorBrush x:Key="ForegroundMouseOverBrush" Color="Blue"></SolidColorBrush>
 
+    <ImageBrush x:Key="EmojiBackground" ImageSource="../Resources/Background/emoji-background.png" TileMode="Tile" Viewport="0,0,500,500"
+                ViewportUnits="Absolute" Stretch="Uniform"/>
+
 </ResourceDictionary>

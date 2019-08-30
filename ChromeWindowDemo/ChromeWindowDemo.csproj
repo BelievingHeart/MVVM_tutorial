@@ -70,20 +70,34 @@
     <Compile Include="AttatchedProperties\PasswordAttachedProperties.cs" />
     <Compile Include="Commands\ParameterizedCommand.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\FalseToVisibleConverter.cs" />
+    <Compile Include="Converters\HexStringToBrushConverter.cs" />
     <Compile Include="Converters\ValueConverterBase.cs" />
     <Compile Include="Converters\EnumToPage.cs" />
     <Compile Include="ExtensionMethods\StoryBoardExtensions.cs" />
     <Compile Include="Interface\IHavePassword.cs" />
-    <Compile Include="Pages\LoginPage.xaml.cs">
+    <Compile Include="Views\Pages\ChatItemPage.xaml.cs">
+      <DependentUpon>ChatItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ChatItemViewModel.cs" />
+    <Compile Include="Views\Pages\ChatPage.xaml.cs">
+      <DependentUpon>ChatPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ChatPageViewModel.cs" />
+    <Compile Include="Views\Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PageBase.cs" />
+    <Compile Include="Views\Pages\PageBase.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="ViewModel\DesignTime\ChatItemDesignTime.cs" />
+    <Compile Include="ViewModel\DesignTime\ChatPageDesignTime.cs" />
     <Compile Include="ViewModel\LoginPageViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
-    <Page Include="MainWindow.xaml">
+    <Compile Include="Views\UserControls\ChatListItemControl.xaml.cs">
+      <DependentUpon>ChatListItemControl.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -91,11 +105,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\LoginPage.xaml">
+    <Page Include="Views\Pages\ChatItemPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\ChatPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Dimensions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -116,6 +142,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\ChatListItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

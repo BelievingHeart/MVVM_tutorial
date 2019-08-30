@@ -93,7 +93,7 @@
                         <TextBlock IsHitTestVisible="False" Text="{TemplateBinding Tag}"
                                    FontSize="{StaticResource FontSizeLarge}" FontWeight="Light"
                                    Foreground="{StaticResource PlaceholderBrush}" HorizontalAlignment="Center"
-                                   Visibility="{Binding Path=(local:PasswordBox_HasTextProperty.Value), RelativeSource={RelativeSource TemplatedParent}, Converter={local:BooleanToVisibilityConverter}}">
+                                   Visibility="{Binding Path=(local:PasswordBox_HasTextProperty.Value), RelativeSource={RelativeSource TemplatedParent}, Converter={local:FalseToVisibleConverter}}">
                
                         </TextBlock>
                     </Grid>

@@ -6,7 +6,7 @@ using System.Windows;
 
 namespace ChromeWindowDemo
 {
-    public class BooleanToVisibilityConverter : ValueConverterBase<BooleanToVisibilityConverter>
+    public class FalseToVisibleConverter : ValueConverterBase<FalseToVisibleConverter>
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

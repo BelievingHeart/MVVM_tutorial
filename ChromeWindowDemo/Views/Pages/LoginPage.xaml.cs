@@ -1,8 +1,5 @@
 ﻿using System.Security;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Input;
-using ChromeWindowDemo.Commands;
+using System.Windows;
 
 namespace ChromeWindowDemo
 {
@@ -14,13 +11,14 @@ namespace ChromeWindowDemo
 
         public LoginPage()
         {
+            LoadingAnimationType = PageAnimationType.SlideIn;
             InitializeComponent();
-
         }
 
         /// <summary>
         /// Provide the ability to bind for PasswordBox.SecurePassword
         /// </summary>
         public SecureString Password => PasswordInput.SecurePassword;
+
     }
 }
