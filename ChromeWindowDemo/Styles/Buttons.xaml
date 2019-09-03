@@ -22,7 +22,7 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource MouseOverColorBrush}" />
+                <Setter Property="Background" Value="{StaticResource MaterialDesignLightBackground}" />
             </Trigger>
         </Style.Triggers>
 

@@ -6,8 +6,18 @@
              xmlns:local="clr-namespace:ChromeWindowDemo"
              mc:Ignorable="d" 
              d:DesignHeight="60" d:DesignWidth="300"
+
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+
              d:DataContext="{x:Static local:ChatItemDesignTime.Instance}">
-    <Border Background="{StaticResource BackgroundVeryLightBrush}">
+    <Border Background="{StaticResource MaterialDesignPaper}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="{StaticResource MenuHeightGridLength}" />
@@ -18,14 +28,13 @@
             <Grid Grid.Column="0">
                 <Border CornerRadius="60" Background="{Binding IconColorCode, Converter={local:HexStringToBrushConverter}}" Margin="5">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Foreground="{StaticResource ForegroundMainBrush}"
                                FontSize="{StaticResource FontSizeLarge}" Text="{Binding Signature}" FontWeight="Bold"/>
                 </Border>
                 <Border Width="4" HorizontalAlignment="Left" Background="Red" Visibility="{Binding Path=MessageRead, Converter={local:FalseToVisibleConverter}}"/>
             </Grid>
 
             <!-- Space for chat content overview and time sent -->
-            <Border Grid.Column="1" BorderThickness="1 0 0 0" BorderBrush="{StaticResource ForegroundVeryDarkBrush}">
+            <Border Grid.Column="1" BorderThickness="1 0 0 0">
                 <StackPanel Margin="3 10 3 2" Orientation="Vertical">
                     <!-- User name and time of last message -->
                     <Grid Margin="0 0 0 5">
@@ -40,7 +49,7 @@
                         <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="{Binding TimeStringRecentChat}"></TextBlock>
                     </Grid>
                     <!-- overview of last message -->
-                    <TextBlock TextTrimming="CharacterEllipsis" Foreground="{StaticResource ForegroundMainBrush}" Text="{Binding LastMessage}" Margin="20 0 0 0"/>
+                    <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding LastMessage}" Margin="20 0 0 0"/>
                 </StackPanel>
             </Border>
         </Grid>

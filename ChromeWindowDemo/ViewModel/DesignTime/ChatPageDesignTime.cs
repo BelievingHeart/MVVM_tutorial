@@ -9,7 +9,7 @@ namespace ChromeWindowDemo
 {
     public class ChatPageDesignTime : ChatPageViewModel
     {
-        public static ChatPageDesignTime Instance = new ChatPageDesignTime();
+        public static ChatPageDesignTime Instance => new ChatPageDesignTime();
 
         public ChatPageDesignTime()
         {

@@ -1,26 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:ChromeWindowDemo">
-    <!-- Background -->
-    <Color x:Key="BackgroundLight">#f0f8e7</Color>
-    <SolidColorBrush x:Key="BackgroundLightBrush" Color="{StaticResource BackgroundLight}"></SolidColorBrush>
 
-    <Color x:Key="BackgroundVeryLight">#ebffe4</Color>
-    <SolidColorBrush x:Key="BackgroundVeryLightBrush" Color="{StaticResource BackgroundLight}"></SolidColorBrush>
-
-    <!-- Foreground -->
-    <Color x:Key="ForegroundMain">#8000f0</Color>
-    <SolidColorBrush x:Key="ForegroundMainBrush" Color="{StaticResource ForegroundMain}"></SolidColorBrush>
-
-    <Color x:Key="ForegroundVeryDark">#000000</Color>
-    <SolidColorBrush x:Key="ForegroundVeryDarkBrush" Color="{StaticResource ForegroundVeryDark}"></SolidColorBrush>
-
-    <Color x:Key="MouseOverColor">#03e8fc</Color>
-    <SolidColorBrush x:Key="MouseOverColorBrush" Color="{StaticResource MouseOverColor}"></SolidColorBrush>
-
-    <SolidColorBrush x:Key="BorderBrushLight" Color="DarkSlateGray"></SolidColorBrush>
-    <SolidColorBrush x:Key="PlaceholderBrush" Color="Silver"></SolidColorBrush>
-    <SolidColorBrush x:Key="ForegroundMouseOverBrush" Color="Blue"></SolidColorBrush>
 
     <ImageBrush x:Key="EmojiBackground" ImageSource="../Resources/Background/emoji-background.png" TileMode="Tile" Viewport="0,0,500,500"
                 ViewportUnits="Absolute" Stretch="Uniform"/>
