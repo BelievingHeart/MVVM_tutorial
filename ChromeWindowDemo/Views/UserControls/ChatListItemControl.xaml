@@ -7,15 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="60" d:DesignWidth="300"
 
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-             TextElement.FontWeight="Regular"
-             TextElement.FontSize="13"
-             TextOptions.TextFormattingMode="Ideal"
-             TextOptions.TextRenderingMode="Auto"
-             Background="{DynamicResource MaterialDesignPaper}"
-             FontFamily="{DynamicResource MaterialDesignFont}"
-
              d:DataContext="{x:Static local:ChatItemDesignTime.Instance}">
     <Border Background="{StaticResource MaterialDesignPaper}">
         <Grid>

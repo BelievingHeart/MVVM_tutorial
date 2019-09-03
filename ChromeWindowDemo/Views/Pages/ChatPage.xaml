@@ -4,20 +4,19 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:chromeWindowDemo="clr-namespace:ChromeWindowDemo"
+      xmlns:system="clr-namespace:System;assembly=mscorlib"
+      xmlns:chromeWindowDemo1="clr-namespace:ChromeWindowDemo"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ChatPage"
       DataContext="{x:Static chromeWindowDemo:ChatPageDesignTime.Instance}"
 
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-      TextElement.FontWeight="Regular"
-      TextElement.FontSize="13"
-      TextOptions.TextFormattingMode="Ideal"
-      TextOptions.TextRenderingMode="Auto"
-      Background="{DynamicResource MaterialDesignPaper}"
-      FontFamily="{DynamicResource MaterialDesignFont}"
 >
+
+    <Page.Resources>
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -26,7 +25,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- left panel -->
-        <Border Grid.Column="0" >
+        <Border Grid.Column="0">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="{StaticResource MenuHeightGridLength}"/>
@@ -40,11 +39,18 @@
                         <ColumnDefinition Width="{StaticResource MenuHeightGridLength}"/>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0">Chats</Button>
-                    <Button Grid.Column="1">Contacts</Button>
-                    <Button Grid.Column="2" Width="{StaticResource MenuHeight}" HorizontalAlignment="Right">Setup</Button>
+                    <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedAccentButton}">
+                        <materialDesign:PackIcon Kind="Wechat"/>
+                    </Button>
+                    <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedAccentButton}">
+                        <materialDesign:PackIcon Kind="ContactPhone"/>
+                    </Button>
+                    <Button Grid.Column="2" Style="{StaticResource MaterialDesignRaisedAccentButton}" Width="{StaticResource MenuHeight}" HorizontalAlignment="Right">
+                        <materialDesign:PackIcon Kind="SettingsOutline" />
+                    </Button>
 
                 </Grid>
+
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
                     <ItemsControl Grid.Row="1" ItemsSource="{Binding Items}">
                         <ItemsControl.ItemTemplate>
